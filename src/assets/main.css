@@ -1,0 +1,43 @@
+/* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Flex utility classes */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+/* Add some padding and margin */
+.p-2 {
+  padding: 10px;
+}
+
+.m-2 {
+  margin: 10px;
+}
+
+/* Media query for responsiveness */
+@media (min-width: 768px) {
+  .container {
+    max-width: 750px;
+    margin: auto;
+  }
+}
