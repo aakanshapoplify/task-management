@@ -1,16 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
-
-interface Task {
-  id: number
-  title: string
-  status: 'pending' | 'completed'
-}
-
-interface State {
-  tasks: Task[]
-  filter: 'all' | 'pending' | 'completed'
-}
+import type { State, State as Task } from './crud'
 
 export default createStore<State>({
   state: {
