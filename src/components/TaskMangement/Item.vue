@@ -5,6 +5,9 @@
     <div class="task-actions flex">
       <button @click="onEdit" class="m-2">Edit</button>
       <button @click="onDelete" class="m-2">Delete</button>
+      <button @click="onUpdate" class="m-2">
+        {{ task.status == 'pending' ? 'Pending' : 'Done' }}
+      </button>
     </div>
   </li>
 </template>
@@ -20,12 +23,18 @@ export default defineComponent({
       required: true
     }
   },
-  emits: ['edit-task', 'delete-task'],
+  emits: ['edit-task', 'delete-task', 'update-task'],
   setup(props, { emit }) {
     const onEdit = () => emit('edit-task', props.task)
     const onDelete = () => emit('delete-task', props.task.id)
+    const onUpdate = () => {
+      if (props.task.status == 'pending') {
+        props.task.status = 'completed'
+        emit('update-task', props.task)
+      }
+    }
 
-    return { onEdit, onDelete }
+    return { onEdit, onDelete, onUpdate }
   }
 })
 </script>

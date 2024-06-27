@@ -9,6 +9,7 @@
         :task="task"
         @edit-task="editTask"
         @delete-task="deleteTask"
+        @update-task="updateTask"
         class="m-2"
       />
     </ul>
@@ -16,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref } from 'vue'
+import { defineComponent, computed, ref, onMounted } from 'vue'
 import { useStore } from 'vuex'
 import Item from './Item.vue'
 import Filter from './Filter.vue'
@@ -43,7 +44,17 @@ export default defineComponent({
       }
     }
 
-    return { filteredTasks, editTask, deleteTask, taskToEdit }
+    // update status
+    const updateTask = (task: Task) => {
+      store.dispatch('updateTask', task)
+    }
+
+    // get list data on page load
+    onMounted(() => {
+      store.dispatch('fetchTasks')
+    })
+
+    return { filteredTasks, editTask, deleteTask, taskToEdit, updateTask }
   }
 })
 </script>

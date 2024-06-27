@@ -20,9 +20,12 @@ export default defineComponent({
   setup(props) {
     const store = useStore()
     const title = ref('')
+    const status = ref('')
+
     // Function to reset form values
     const resetForm = () => {
       title.value = props?.task?.title || ''
+      status.value = props?.task?.status || 'pending'
     }
 
     // Watch the task prop and reset form values when it changes
@@ -38,7 +41,8 @@ export default defineComponent({
     const onSubmit = () => {
       const updatedTask = {
         ...props.task,
-        title: title.value
+        title: title.value,
+        status: status.value
       }
       if (updatedTask.id) {
         store.dispatch('editTask', updatedTask)
