@@ -1,7 +1,7 @@
 <template>
   <div class="task-list">
     <Filter class="m-2" />
-    <AddEditForm class="m-2" :task="taskToEdit" />
+    <AddEditForm class="m-2" :task="taskToEdit" @clear-edit="clearEditTask" />
     <ul class="flex-col p-2">
       <Item
         v-for="task in filteredTasks"
@@ -43,7 +43,9 @@ export default defineComponent({
         taskToEdit.value = null
       }
     }
-
+    const clearEditTask = () => {
+      taskToEdit.value = null
+    }
     // update status
     const updateTask = (task: Task) => {
       store.dispatch('updateTask', task)
@@ -54,7 +56,7 @@ export default defineComponent({
       store.dispatch('fetchTasks')
     })
 
-    return { filteredTasks, editTask, deleteTask, taskToEdit, updateTask }
+    return { filteredTasks, editTask, deleteTask, taskToEdit, updateTask, clearEditTask }
   }
 })
 </script>

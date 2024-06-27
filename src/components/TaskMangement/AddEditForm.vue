@@ -17,7 +17,8 @@ export default defineComponent({
       default: () => ({ title: '', status: 'pending' })
     }
   },
-  setup(props) {
+  emits: ['clear-edit'],
+  setup(props, { emit }) {
     const store = useStore()
     const title = ref('')
     const status = ref('')
@@ -39,6 +40,7 @@ export default defineComponent({
 
     // Submit Form at add & Edited
     const onSubmit = () => {
+      console.log('submit ')
       const updatedTask = {
         ...props.task,
         title: title.value,
@@ -50,10 +52,16 @@ export default defineComponent({
         updatedTask.id = Date.now()
         store.dispatch('addTask', updatedTask)
       }
+      emit('clear-edit')
+
+      resetForm()
+    }
+    const clearEdit = () => {
+      emit('clear-edit')
       resetForm()
     }
 
-    return { title, onSubmit }
+    return { title, onSubmit, clearEdit }
   }
 })
 </script>
