@@ -25,7 +25,6 @@ export default createStore<State>({
     },
     editTask(state: any, updatedTask: Task) {
       const index = state.tasks.findIndex((task: any) => task.id == updatedTask.id)
-      console.log(index, 'index')
       if (index !== -1) {
         state.tasks[index] = updatedTask
       }
@@ -40,16 +39,16 @@ export default createStore<State>({
 
   // Handle Actions
   actions: {
-    addTask({ commit }, task: Task) {
+    addTask({ commit }: { commit: any }, task: Task) {
       commit('addTask', task)
     },
-    editTask({ commit }, task: Task) {
+    editTask({ commit }: { commit: any }, task: Task) {
       commit('editTask', task)
     },
-    deleteTask({ commit }, taskId: number) {
+    deleteTask({ commit }: { commit: any }, taskId: number) {
       commit('deleteTask', taskId)
     },
-    setFilter({ commit }, filter: 'all' | 'pending' | 'completed') {
+    setFilter({ commit }: { commit: any }, filter: 'all' | 'pending' | 'completed') {
       commit('setFilter', filter)
     }
   },

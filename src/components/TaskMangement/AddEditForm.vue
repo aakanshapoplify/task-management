@@ -19,16 +19,15 @@ export default defineComponent({
   },
   setup(props) {
     const store = useStore()
-    const title = ref(props.task.title)
-
+    const title = ref('')
     // Function to reset form values
     const resetForm = () => {
-      title.value = props.task.title || ''
+      title.value = props?.task?.title || ''
     }
 
     // Watch the task prop and reset form values when it changes
     watch(
-      () => props.task,
+      () => props?.task,
       (newTask) => {
         resetForm()
       },
@@ -37,16 +36,15 @@ export default defineComponent({
 
     // Submit Form at add & Edited
     const onSubmit = () => {
-      const task = {
+      const updatedTask = {
         ...props.task,
         title: title.value
       }
-      console.log(task, 'onSubmit')
-      if (task.id) {
-        store.dispatch('editTask', task)
+      if (updatedTask.id) {
+        store.dispatch('editTask', updatedTask)
       } else {
-        task.id = Date.now()
-        store.dispatch('addTask', task)
+        updatedTask.id = Date.now()
+        store.dispatch('addTask', updatedTask)
       }
       resetForm()
     }

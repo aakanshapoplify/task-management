@@ -1,7 +1,7 @@
 <template>
   <div class="task-list">
     <Filter class="m-2" />
-    <AddEditForm class="m-2" />
+    <AddEditForm class="m-2" :task="taskToEdit" />
     <ul class="flex-col p-2">
       <Item
         v-for="task in filteredTasks"
@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, ref } from 'vue'
 import { useStore } from 'vuex'
 import Item from './Item.vue'
 import Filter from './Filter.vue'
@@ -27,15 +27,23 @@ export default defineComponent({
   components: { Item, Filter, AddEditForm },
   setup() {
     const store = useStore()
+    const taskToEdit = ref<Task | null>(null)
+
     const filteredTasks = computed(() => store.getters.filteredTasks)
 
     // Dispatch Edit
-    const editTask = (task: Task) => store.dispatch('editTask', task)
-
+    const editTask = (task: Task) => {
+      taskToEdit.value = { ...task } // Clone the task to avoid direct mutation
+    }
     // Dispatch Detele
-    const deleteTask = (taskId: number) => store.dispatch('deleteTask', taskId)
+    const deleteTask = (taskId: number) => {
+      store.dispatch('deleteTask', taskId)
+      if (taskToEdit.value?.id === taskId) {
+        taskToEdit.value = null
+      }
+    }
 
-    return { filteredTasks, editTask, deleteTask }
+    return { filteredTasks, editTask, deleteTask, taskToEdit }
   }
 })
 </script>
