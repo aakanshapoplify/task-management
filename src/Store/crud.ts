@@ -1,6 +1,6 @@
 interface Task {
   id: number
-  title: string
+  title: any
   status: 'pending' | 'completed'
 }
 
