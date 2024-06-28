@@ -1,30 +1,41 @@
 <template>
-  <div class="task-form task-list">
-    <div class="flex flex-center">
-      <AddEditForm class="m-2" :task="taskToEdit" @clear-edit="clearEditTask" />
-      <Filter class="btn-status m-2" />
+  <section class="section">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-head mt-3">
+            <h2 class="card-title text-center">To Do App</h2>
+            <div class="flex flex-center">
+              <AddEditForm class="m-2" :task="taskToEdit" @clear-edit="clearEditTask" />
+              <Filter class="btn-status m-2" />
+            </div>
+            <div class="card-body scrollit">
+              <table class="table table-striped text-center">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <Item
+                    v-for="task in filteredTasks"
+                    :key="task.id"
+                    :task="task"
+                    @edit-task="editTask"
+                    @delete-task="deleteTask"
+                    @update-task="updateTask"
+                    class="m-2"
+                  />
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <table class="table-auto w-full m-2">
-      <thead>
-        <tr>
-          <th class="px-4 py-2">Title</th>
-          <th class="px-4 py-2">Status</th>
-          <th class="px-4 py-2">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <Item
-          v-for="task in filteredTasks"
-          :key="task.id"
-          :task="task"
-          @edit-task="editTask"
-          @delete-task="deleteTask"
-          @update-task="updateTask"
-          class="m-2"
-        />
-      </tbody>
-    </table>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">
@@ -45,6 +56,7 @@ export default defineComponent({
 
     // Dispatch Edit
     const editTask = (task: Task) => {
+      window.scrollTo(0, 0)
       taskToEdit.value = { ...task } // Clone the task to avoid direct mutation
     }
     // Dispatch Detele
@@ -66,10 +78,20 @@ export default defineComponent({
     onMounted(() => {
       store.dispatch('fetchTasks')
     })
-
     return { filteredTasks, editTask, deleteTask, taskToEdit, updateTask, clearEditTask }
   }
 })
 </script>
-
-<style scoped></style>
+<
+<style>
+body {
+  background: #f6f9ff;
+}
+.section {
+  height: 100vh;
+  margin-top: 30px;
+}
+.scrollit {
+  overflow: scroll;
+}
+</style>
