@@ -14,18 +14,6 @@ TypeScript cannot handle type information for `.vue` imports by default, so we r
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
 ### Type-Check, Compile and Minify for Production
 
 ```sh
@@ -48,6 +36,34 @@ This runs the end-to-end tests against the Vite development server.
 It is much faster than the production build.
 
 But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
+
+# project
+
+Task Management
+
+## Features
+
+List the key features of your project:
+
+- Todo app
+- Vuex
+- API Integration (json-server)
+- Routing
+
+## Project Setup
+
+```sh
+npm install
+```
+
+### Compile and Hot-Reload for Development
+
+Open multiple terminal to run front-end, back-end
+
+```sh
+npm run dev
+npm run serve:json
+```
 
 ```sh
 npm run build

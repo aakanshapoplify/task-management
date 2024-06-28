@@ -1,13 +1,13 @@
 <template>
   <section class="section">
     <div class="row justify-content-center">
-      <div class="col-md-6">
+      <div class="col-md-8 col-lg-5 col-11">
         <div class="card">
           <div class="card-head mt-3">
             <h2 class="card-title text-center">To Do App</h2>
-            <div class="flex flex-center">
+            <div class="flex flex-center card-search-section">
               <AddEditForm class="m-2" :task="taskToEdit" @clear-edit="clearEditTask" />
-              <Filter class="btn-status m-2" />
+              <Filter class="btn-status" />
             </div>
             <div class="card-body scrollit">
               <table class="table table-striped text-center">
@@ -41,9 +41,9 @@
 <script lang="ts">
 import { defineComponent, computed, ref, onMounted } from 'vue'
 import { useStore } from 'vuex'
-import Item from './Item.vue'
-import Filter from './Filter.vue'
-import AddEditForm from './AddEditForm.vue'
+import Item from '../Item/index.vue'
+import Filter from '../Filter/index.vue'
+import AddEditForm from '../AddEditForm/index.vue'
 import { Task } from '../store/index'
 
 export default defineComponent({
@@ -82,16 +82,7 @@ export default defineComponent({
   }
 })
 </script>
-<
-<style>
-body {
-  background: #f6f9ff;
-}
-.section {
-  height: 100vh;
-  margin-top: 30px;
-}
-.scrollit {
-  overflow: scroll;
-}
+
+<style lang="scss" scoped>
+@import './style.scss';
 </style>

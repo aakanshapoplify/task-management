@@ -34,16 +34,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-.task-filter {
-  background: #f4f4f4;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-@media (min-width: 768px) {
-  .task-filter {
-    justify-content: space-around;
-  }
-}
+<style lang="scss" scoped>
+  @import "./style.scss"
 </style>

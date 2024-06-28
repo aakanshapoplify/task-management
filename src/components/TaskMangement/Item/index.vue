@@ -2,7 +2,7 @@
   <tr>
     <td class="text-center">{{ task.title }}</td>
     <td
-      class="text-center"
+      class="text-center pointer"
       @click="onUpdate"
       :class="task.status == 'pending' ? 'warning' : 'success'"
     >
@@ -58,39 +58,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-.task-title {
-  font-weight: bold;
-}
-
-.task-desc {
-  margin-top: 5px;
-}
-
-.task-actions {
-  margin-top: 10px;
-  justify-content: space-between;
-}
-
-@media (min-width: 768px) {
-  .task-item {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .task-title,
-  .task-desc {
-    flex: 1;
-  }
-
-  .task-actions {
-    justify-content: flex-end;
-  }
-  .success {
-    color: green;
-  }
-  .warning {
-    color: #bdbd0a;
-  }
-}
+<style lang="scss" scoped>
+@import './style.scss';
 </style>

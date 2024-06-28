@@ -12,7 +12,7 @@
     }
   ],
   "compilerOptions": {
-    "module": "NodeNext"
-  },
-  "types": ["vue-sweetalert2"]
+    "module": "NodeNext",
+    "types": ["vitest/globals", "jest"]
+  }
 }

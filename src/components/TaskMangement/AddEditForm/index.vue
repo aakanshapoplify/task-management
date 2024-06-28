@@ -1,6 +1,6 @@
 <template>
-  <form @submit.prevent="onSubmit" class="flex p-2">
-    <div class="form-section flex">
+  <form @submit.prevent="onSubmit" class="flex edit-form">
+    <div class="form-section flex align-items-center">
       <input
         type="text"
         v-model="title"
@@ -9,7 +9,7 @@
         required
         @keypress="removeSpace($event)"
       />
-      <button type="submit" class="btn btn-success m-2 btn-status">
+      <button type="submit" class="btn btn-success btn-status">
         {{ isEditMode ? 'Update' : 'Add' }}
       </button>
     </div>
@@ -85,39 +85,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-.task-form {
-  background: #f4f4f4;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 100%;
-}
-
-@media (min-width: 768px) {
-  .task-form {
-    max-width: 750px;
-    margin: auto;
-  }
-  input {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 30px 5px 12px;
-    box-sizing: border-box;
-    border: none;
-    border-radius: 25px;
-    color: black;
-    font-size: 16px 20px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-  }
-
-  input::placeholder {
-    color: gray;
-  }
-
-  input:focus {
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
-    outline: none;
-  }
-}
+<style lang="scss" scoped>
+@import './style.scss';
 </style>
