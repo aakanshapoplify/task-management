@@ -1,7 +1,9 @@
 <template>
-  <form @submit.prevent="onSubmit" class="task-form flex flex-col p-2">
-    <input v-model="title" placeholder="Title" required class="m-2" />
-    <button type="submit" class="m-2">Save</button>
+  <form @submit.prevent="onSubmit" class="flex p-2">
+    <div class="form-section flex">
+      <input type="text" v-model="title" placeholder="Title" required />
+      <button type="submit" class="btn btn-secondary m-2 btn-status">Save</button>
+    </div>
   </form>
 </template>
 
@@ -78,6 +80,27 @@ export default defineComponent({
   .task-form {
     max-width: 750px;
     margin: auto;
+  }
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 30px 5px 12px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 25px;
+    color: black;
+    font-size: 16px 20px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  input::placeholder {
+    color: black;
+  }
+
+  input:focus {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+    outline: none;
   }
 }
 </style>

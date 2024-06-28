@@ -7,8 +7,8 @@
 
 body {
   font-family: Arial, sans-serif;
-  line-height: 1.6;
-  padding: 20px;
+  background: #f4f4f4;
+  border-radius: 5px;
 }
 
 /* Flex utility classes */
@@ -21,7 +21,7 @@ body {
 }
 
 .flex-center {
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
 
@@ -40,4 +40,54 @@ body {
     max-width: 750px;
     margin: auto;
   }
+}
+/* src/assets/main.css or in your <style> tags */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+@media (max-width: 600px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  th {
+    display: none;
+  }
+
+  td {
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+  }
+
+  td::before {
+    position: absolute;
+    left: 6px;
+    content: attr(data-label);
+    font-weight: bold;
+    text-align: left;
+  }
+}
+.pointer {
+  cursor: pointer;
+}
+.btn-status {
+  width: 80px;
+}
+.border {
+  border: none !important;
 }

@@ -1,18 +1,29 @@
 <template>
-  <div class="task-list">
-    <Filter class="m-2" />
-    <AddEditForm class="m-2" :task="taskToEdit" @clear-edit="clearEditTask" />
-    <ul class="flex-col p-2">
-      <Item
-        v-for="task in filteredTasks"
-        :key="task.id"
-        :task="task"
-        @edit-task="editTask"
-        @delete-task="deleteTask"
-        @update-task="updateTask"
-        class="m-2"
-      />
-    </ul>
+  <div class="task-form task-list">
+    <div class="flex flex-center">
+      <AddEditForm class="m-2" :task="taskToEdit" @clear-edit="clearEditTask" />
+      <Filter class="btn-status m-2" />
+    </div>
+    <table class="table-auto w-full m-2">
+      <thead>
+        <tr>
+          <th class="px-4 py-2">Title</th>
+          <th class="px-4 py-2">Status</th>
+          <th class="px-4 py-2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <Item
+          v-for="task in filteredTasks"
+          :key="task.id"
+          :task="task"
+          @edit-task="editTask"
+          @delete-task="deleteTask"
+          @update-task="updateTask"
+          class="m-2"
+        />
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -61,16 +72,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-.task-list {
-  width: 100%;
-  max-width: 100%;
-}
-
-@media (min-width: 768px) {
-  .task-list {
-    max-width: 750px;
-    margin: auto;
-  }
-}
-</style>
+<style scoped></style>

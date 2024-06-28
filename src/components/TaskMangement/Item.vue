@@ -1,15 +1,18 @@
 <template>
-  <li class="task-item flex flex-col p-2 m-2">
-    <div class="task-title">{{ task.title }}</div>
-    <div class="task-desc">{{ task.description }}</div>
-    <div class="task-actions flex">
-      <button @click="onEdit" class="m-2">Edit</button>
-      <button @click="onDelete" class="m-2">Delete</button>
-      <button @click="onUpdate" class="m-2">
-        {{ task.status == 'pending' ? 'Pending' : 'Done' }}
-      </button>
-    </div>
-  </li>
+  <tr>
+    <td class="border px-4 py-2">{{ task.title }}</td>
+    <td
+      class="border px-4 py-2 pointer"
+      @click="onUpdate"
+      :class="task.status == 'pending' ? 'warning' : 'success'"
+    >
+      {{ task.status }}
+    </td>
+    <td class="border px-4 py-2">
+      <button @click="onEdit" class="btn btn-secondary m-2 btn-status">Edit</button>
+      <button @click="onDelete" class="btn btn-secondary m-2 btn-status">Delete</button>
+    </td>
+  </tr>
 </template>
 
 <script lang="ts">
@@ -40,12 +43,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.task-item {
-  background: #f4f4f4;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 .task-title {
   font-weight: bold;
 }
@@ -72,6 +69,12 @@ export default defineComponent({
 
   .task-actions {
     justify-content: flex-end;
+  }
+  .success {
+    color: green;
+  }
+  .warning {
+    color: #bdbd0a;
   }
 }
 </style>

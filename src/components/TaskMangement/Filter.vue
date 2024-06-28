@@ -1,8 +1,19 @@
 <template>
-  <div class="task-filter flex justify-around p-2">
-    <button @click="setFilter('all')" class="m-2">All</button>
-    <button @click="setFilter('pending')" class="m-2">Pending</button>
-    <button @click="setFilter('completed')" class="m-2">Completed</button>
+  <div class="dropdown">
+    <button
+      class="btn btn-secondary dropdown-toggle btn-status"
+      type="button"
+      id="dropdownMenuButton"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Filter
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <li><a class="dropdown-item" @click="setFilter('all')" href="#">All</a></li>
+      <li><a class="dropdown-item" @click="setFilter('pending')" href="#">Pending</a></li>
+      <li><a class="dropdown-item" @click="setFilter('completed')" href="#">Completed</a></li>
+    </ul>
   </div>
 </template>
 
