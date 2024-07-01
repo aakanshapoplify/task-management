@@ -21,7 +21,8 @@ import { Task } from '../store/index'
 import Swal from 'sweetalert2'
 
 export default defineComponent({
-  name: 'List',
+
+  name: 'Item',
   props: {
     task: {
       type: Object as PropType<Task>,

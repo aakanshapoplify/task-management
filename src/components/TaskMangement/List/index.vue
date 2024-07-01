@@ -47,6 +47,7 @@ import AddEditForm from '../AddEditForm/index.vue'
 import { Task } from '../store/index'
 
 export default defineComponent({
+  name:"List",
   components: { Item, Filter, AddEditForm },
   setup() {
     const store = useStore()

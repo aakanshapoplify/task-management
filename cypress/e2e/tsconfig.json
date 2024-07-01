@@ -4,5 +4,11 @@
   "compilerOptions": {
     "isolatedModules": false,
     "types": ["cypress"]
+  },
+  "experimentalImportAnalysis": true,  // Optional, for Vite import analysis
+  "resolve": {
+    "alias": {
+      "@/assets": "${rootDir}/src/assets"  // Adjust based on your project structure
+    }
   }
 }

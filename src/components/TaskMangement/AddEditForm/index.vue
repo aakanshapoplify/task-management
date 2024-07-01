@@ -22,6 +22,7 @@ import { useStore } from 'vuex'
 import { Task } from '../store/index'
 
 export default defineComponent({
+  name:'AddEditForm',
   props: {
     task: {
       type: Object as PropType<Task>,

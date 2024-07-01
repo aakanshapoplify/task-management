@@ -13,6 +13,9 @@
   ],
   "compilerOptions": {
     "module": "NodeNext",
-    "types": ["vitest/globals", "jest"]
-  }
+    "types": ["vite/client"],
+    "typeRoots": ["node_modules/@types"],
+  },
+  "typeAcquisition": { "include": ["jest"] },
+
 }

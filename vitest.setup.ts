@@ -1,12 +1,12 @@
-import { config } from '@vue/test-utils'
-import { vi } from 'vitest'
+import { config } from '@vue/test-utils';
+import { vi } from 'vitest';
 
 // Mock Vue Router
 config.global.mocks = {
   $router: {
-    push: vi.fn()
+    push: vi.fn(),
   },
   $route: {
-    params: {}
-  }
-}
+    params: {},
+  },
+};
