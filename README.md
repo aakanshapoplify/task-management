@@ -39,7 +39,7 @@ npm run serve:json
 ```sh
 npm run test
 ```
-## Compile particular test test-cases
+## test particular  test-cases
 
 ```sh
 npm run test Filter.spec.ts
