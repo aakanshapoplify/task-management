@@ -51,8 +51,8 @@ npx cypress open
 ```   
 # description to check cypress
 
-Run the given command
-Then Click to E2E testing in browser 
-Select browser
-Click on example.cy.ts
+- Run the given command
+- Then Click to E2E testing in browser 
+- Select browser
+- Click on example.cy.ts
 
