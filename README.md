@@ -56,3 +56,9 @@ npx cypress open
 - Select browser
 - Click on example.cy.ts
 
+## reference link
+
+https://cli.vuejs.org/guide/installation.html
+https://www.npmjs.com/package/vue-router?activeTab=versions
+https://www.npmjs.com/package/vuex
+https://www.simplethread.com/fake-it-till-you-make-it/
